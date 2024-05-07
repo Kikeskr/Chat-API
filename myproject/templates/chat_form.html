@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat</title>
+</head>
+<body>
+    <h1>Chat</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="message">Message:</label>
+        <input type="text" id="message" name="message" required><br><br>
+        <button type="submit">Send</button>
+    </form>
+    {% for chat in chats %}
+    <div><strong>You:</strong> {{ chat.message }}</div>
+    <div><strong>Bot:</strong> {{ chat.response }}</div>
+    {% endfor %}
+</body>
+</html>
